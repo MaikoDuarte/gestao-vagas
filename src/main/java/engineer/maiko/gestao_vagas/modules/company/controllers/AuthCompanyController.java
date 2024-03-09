@@ -1,6 +1,5 @@
 package engineer.maiko.gestao_vagas.modules.company.controllers;
 
-import javax.naming.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,15 +13,15 @@ import engineer.maiko.gestao_vagas.modules.company.dto.AuthCompanyDTO;
 import engineer.maiko.gestao_vagas.modules.company.useCases.AuthCompanyUseCase;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/company")
 public class AuthCompanyController {
 
   @Autowired
   private AuthCompanyUseCase authCompanyUseCase;
 
 
-  @PostMapping("/company")
-  public ResponseEntity<Object> create(@RequestBody AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
+  @PostMapping("/auth")
+  public ResponseEntity<Object> create(@RequestBody AuthCompanyDTO authCompanyDTO) {
     try {
       var result = this.authCompanyUseCase.execute(authCompanyDTO);
       return ResponseEntity.ok().body(result);

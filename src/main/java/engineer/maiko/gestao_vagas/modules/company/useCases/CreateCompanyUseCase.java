@@ -24,6 +24,7 @@ public CompanyEntity execute(CompanyEntity companyEntity) {
   .ifPresent((user) -> {
     throw new UserFoundException();
   });
+  
 
   var password = passwordEncoder.encode(companyEntity.getPassword());
   companyEntity.setPassword(password);
