@@ -88,7 +88,7 @@ public class CreateJobControllerTest {
         mvc.perform(MockMvcRequestBuilders.post("/company/job/")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtils.objectToJSON(createdJobDTO))
-            .header("Authorization", TestUtils.generateToken(UUID.randomUUID(), "JAVAGAS_@123#CANDIDATE")))    
+            .header("Authorization", TestUtils.generateToken(UUID.randomUUID(), "JAVAGAS_@123#CANDIDATE")))
             .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }    
 }
